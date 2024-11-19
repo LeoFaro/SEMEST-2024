@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Da faxina de dados a relatórios dinâmicos"
+  subtitle: "SEMEST UFPA 2024"
+  author:
+  - name: "**Hugo Leonardo G. Faro**"
+    id: md
+    orcid: 0000-0001-7262-3336
+    url: hugo.faro@icen.ufpa.br
+    email: hugo.faro@icen.ufpa.br
+    corresponding: true
+    affiliation:
+     - Bolsista PIBIC
+     - LASIG UFPA
+  page-footer: 
+    left: 
+      was wristter by (FARO - 2024)
+    right: 
+      UFPA 2024
+  search: true
+  repo-url: http://localhost:5904/
+  downloads: [pdf, docx]
+  sharing: [twitter, facebook]
+  
+  date: "18/11/2024"
+  chapters:
+     - index.qmd
+     - intro.qmd
+     - summary.qmd
+     - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
