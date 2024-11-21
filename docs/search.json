@@ -4,19 +4,39 @@
     "href": "index.html",
     "title": "Da faxina de dados a relatórios dinâmicos",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Prefácio\nSerá ministrado um curso em linguagem de programação em R, utilizando como base o pacote Quarto.\nAo longo da oficina será apresentado os principais pacotes de visualização de dados, tais como: ggplot2 e Plotly",
     "crumbs": [
-      "Preface"
+      "Prefácio"
     ]
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "1  Analise Exploratória de dados",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "2 Etapas Operacionais",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analise Exploratória de dados</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#diretório-de-trabalho-no-r",
+    "href": "intro.html#diretório-de-trabalho-no-r",
+    "title": "1  Analise Exploratória de dados",
+    "section": "2.1 Diretório de Trabalho no R",
+    "text": "2.1 Diretório de Trabalho no R\nFunção básica para definir diretório de trabalho.\n\nsetwd(\"C:/Users/hugin/OneDrive/Documentos/SEMEST_UFPA_2024/SEMEST_UFPA_2024\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analise Exploratória de dados</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#leitura-de-base-de-dados",
+    "href": "intro.html#leitura-de-base-de-dados",
+    "title": "1  Analise Exploratória de dados",
+    "section": "2.2 Leitura de base de dados",
+    "text": "2.2 Leitura de base de dados\n\n2.2.1 Base de dados .xlsx\n\nlibrary(readr)\nlibrary(readxl)\n\n\nmercado &lt;- read_excel('mercado.xlsx')\n\n\n\n2.2.2 Base da dados .csv\n\nVendas_A = read.csv2(\"http://raw.githubusercontent.com/Lucianea/Alta/master/vendas.csv\")\n\n# Dados separados por Vírgula (,)\nVendas_B = read.csv(\"http://raw.githubusercontent.com/Lucianea/Alta/master/vendas1.csv\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analise Exploratória de dados</span>"
     ]
   },
   {
@@ -27,16 +47,6 @@
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
     ]
   }
 ]

@@ -1,9 +1,11 @@
-# Preface {.unnumbered}
-
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
+```{=html}
+<style>
+body{text-align: justify}
+</style>
 ```
+
+# Prefácio {.unnumbered}
+
+Será ministrado um curso em linguagem de programação em **R**, utilizando como base o pacote Quarto.
+
+Ao longo da oficina será apresentado os principais pacotes de visualização de dados, tais como: **ggplot2** e **Plotly**

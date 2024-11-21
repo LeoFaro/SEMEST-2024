@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Da faxina de dados a relatórios dinâmicos - 1&nbsp; Introduction</title>
+<title>Da faxina de dados a relatórios dinâmicos - 1&nbsp; Analise Exploratória de dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -135,7 +115,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analise Exploratória de dados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -200,13 +180,13 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analise Exploratória de dados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,14 +207,28 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#etapas-operacionais" id="toc-etapas-operacionais" class="nav-link active" data-scroll-target="#etapas-operacionais"><span class="header-section-number">2</span> Etapas Operacionais</a>
+  <ul class="collapse">
+  <li><a href="#diretório-de-trabalho-no-r" id="toc-diretório-de-trabalho-no-r" class="nav-link" data-scroll-target="#diretório-de-trabalho-no-r"><span class="header-section-number">2.1</span> Diretório de Trabalho no <strong>R</strong></a></li>
+  <li><a href="#leitura-de-base-de-dados" id="toc-leitura-de-base-de-dados" class="nav-link" data-scroll-target="#leitura-de-base-de-dados"><span class="header-section-number">2.2</span> Leitura de base de dados</a>
+  <ul class="collapse">
+  <li><a href="#base-de-dados-.xlsx" id="toc-base-de-dados-.xlsx" class="nav-link" data-scroll-target="#base-de-dados-.xlsx"><span class="header-section-number">2.2.1</span> Base de dados .xlsx</a></li>
+  <li><a href="#base-da-dados-.csv" id="toc-base-da-dados-.csv" class="nav-link" data-scroll-target="#base-da-dados-.csv"><span class="header-section-number">2.2.2</span> Base da dados .csv</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analise Exploratória de dados</span></h1>
 </div>
 
 
@@ -251,21 +245,59 @@ div.csl-indent {
 </header>
 
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<style>
+body{text-align: justify}
+</style>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
+<p>Em estatística, a análise exploratória de dados (AED) é uma abordagem à análise de conjuntos de dados de modo a resumir suas características principais, frequentemente com métodos visuais. Um modelo estatístico pode ou não ser usado, mas primariamente a AED tem como objetivo observar o que os dados podem nos dizer além da modelagem formal ou do processo de teste de hipóteses.</p>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
+<section id="etapas-operacionais" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Etapas Operacionais</h1>
+<section id="diretório-de-trabalho-no-r" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="diretório-de-trabalho-no-r"><span class="header-section-number">2.1</span> Diretório de Trabalho no <strong>R</strong></h2>
+<p>Função básica para definir diretório de trabalho.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/hugin/OneDrive/Documentos/SEMEST_UFPA_2024/SEMEST_UFPA_2024"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="leitura-de-base-de-dados" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="leitura-de-base-de-dados"><span class="header-section-number">2.2</span> Leitura de base de dados</h2>
+<section id="base-de-dados-.xlsx" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="base-de-dados-.xlsx"><span class="header-section-number">2.2.1</span> Base de dados .xlsx</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>mercado <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">'mercado.xlsx'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="base-da-dados-.csv" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="base-da-dados-.csv"><span class="header-section-number">2.2.2</span> Base da dados .csv</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Vendas_A <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">"http://raw.githubusercontent.com/Lucianea/Alta/master/vendas.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados separados por Vírgula (,)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Vendas_B <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://raw.githubusercontent.com/Lucianea/Alta/master/vendas1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
-</div>
-</div>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -679,8 +711,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./index.html" class="pagination-link" aria-label="Prefácio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefácio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
