@@ -3,44 +3,129 @@
 body{text-align: justify}
 </style>
 ```
-
-:::: progress
+::: progress
 ::: {.progress-bar style="width: 100%;"}
 :::
-::::
-
+:::
 
 # Analise Exploratória de dados
 
 Em estatística, a análise exploratória de dados (AED) é uma abordagem à análise de conjuntos de dados de modo a resumir suas características principais, frequentemente com métodos visuais. Um modelo estatístico pode ou não ser usado, mas primariamente a AED tem como objetivo observar o que os dados podem nos dizer além da modelagem formal ou do processo de teste de hipóteses.
 
-
-:::: progress
+::: progress
 ::: {.progress-bar style="width: 100%;"}
 :::
-::::
+:::
 
 # Etapas Operacionais
+
 ## Diretório de Trabalho no **R**
 
 Função básica para definir diretório de trabalho.
-
 
 ```{r}
 setwd("C:/Users/hugin/OneDrive/Documentos/SEMEST_UFPA_2024/SEMEST_UFPA_2024")
 ```
 
 ## Leitura de base de dados
+
 ### Base de dados .xlsx
 
 ```{r base1}
-
 library(readr)
 library(readxl)
+library(ggplot2)
+library(plotly)
+library(ggpmisc)
 
+formula <- y ~ x
 
 mercado <- read_excel('mercado.xlsx')
 
+Plot2 <- ggplot(mercado, aes(x = IDADE, y = SALARIO)) +
+  geom_point(size = 3, 
+             pch = 21, 
+             col = 'blue',
+             fill = 'white') +
+  geom_smooth(method = "lm", 
+              se = FALSE, 
+              col = "red") +
+  stat_poly_eq(formula = formula, 
+               aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+               parse = TRUE, 
+               label.x.npc = "left",
+               label.y.npc = "top") +
+  theme_bw() +
+  labs(x = "IDADE", 
+       y = "SALÁRIO", 
+       title = "Diagrama de Dispersão Geral", 
+       subtitle = "Renda Salarial")
+
+plot(Plot2)
+
+```
+
+```{r}
+library(DT)
+library(readr)
+library(readxl)
+library(ggplot2)
+library(plotly)
+
+mercado <- read_excel('mercado2.xlsx')
+
+
+Plot2<-ggplot(mercado,
+       aes(x = TEMPOCASA, y = SALARIO)) +
+    geom_point(size = 2.5, 
+             pch = 21, 
+             col = 'blue',
+             fill = 'white')+
+  geom_smooth(method="lm",
+              se= FALSE,
+              col = "red")+
+  theme_bw()+
+  labs(x="IDADE", 
+       y="SALÁRIO", 
+       title="Diagrama de Dispersão Geral", 
+       subtitle = "Renda Salarial")
+ggplotly(Plot2)
+
+
+```
+
+```{r}
+library(DT)
+library(readr)
+library(readxl)
+
+# Carregando os dados
+mercado <- read_excel('mercado2.xlsx')
+
+# Criando a tabela interativa
+datatable(
+  mercado,
+  editable = 'cell',
+  caption = 'Tabela 1. Base de Dados sobre Serviços',
+  colnames = c("ID",
+               "Educação",
+               "Cargo",
+               "Via",
+               "Idade",
+               "Tempo",
+               "Remuneração"),
+  filter = "top",
+  plugins = 'natural',
+  extensions = 'Buttons',
+  options = list(
+    dom = 'Blfrtip',
+    buttons = c('csv', 'excel', 'pdf'),
+    lengthMenu = list(c(5, 50, 100, 250, -1), c("5", "50", "100", "250", "All")),
+    pageLength = 5,
+    autoWidth = TRUE,
+    scrollX = TRUE
+  )
+)
 
 ```
 
@@ -52,6 +137,55 @@ Vendas_A = read.csv2("http://raw.githubusercontent.com/Lucianea/Alta/master/vend
 
 # Dados separados por Vírgula (,)
 Vendas_B = read.csv("http://raw.githubusercontent.com/Lucianea/Alta/master/vendas1.csv")
+
+```
+
+```{r}
+library(readxl)
+library(ggplot2)
+library(plotly)
+
+# Carregar os dados
+mercado <- read_excel("mercado2.xlsx")
+
+# Ajustar o modelo linear
+modelo <- lm(SALARIO ~ IDADE, data = mercado)
+
+# Obter os coeficientes da reta
+coeficientes <- coef(modelo)
+intercepto <- round(coeficientes[1], 2)  # Intercepto
+slope <- round(coeficientes[2], 2)       # Inclinação
+r2 <- round(summary(modelo)$r.squared, 2) # R²
+
+# Criar a equação da reta
+equacao <- paste0("y = ", slope, "x + ", intercepto, " (R² = ", r2, ")")
+
+# Criar o gráfico com plotly
+fig <- plot_ly(data = mercado, x = ~IDADE, y = ~SALARIO, type = "scatter", mode = "markers") %>%
+  add_trace(x = mercado$IDADE, 
+            y = predict(modelo), 
+            mode = "lines", 
+            line = list(color = "red"),
+            name = "Linha de Regressão") %>%
+  layout(
+    title = "",
+    xaxis = list(title = "IDADE"),
+    yaxis = list(title = "SALÁRIO"),
+    annotations = list(
+      x = 0,  # Posição no canto esquerdo (relativo ao gráfico)
+      y = 1,  # Posição no topo
+      xref = "paper",  # Referência ao espaço do gráfico
+      yref = "paper",  # Referência ao espaço do gráfico
+      text = equacao,  # Exibe a equação da reta
+      showarrow = FALSE, # Sem seta
+      align = "left",   # Alinha o texto à esquerda
+      font = list(size = 12, color = "black")
+    )
+  )
+
+# Exibir o gráfico interativo
+fig
+
 
 ```
 
@@ -69,29 +203,17 @@ Vendas_A %>%
 
 ```
 
+|       Dplyr        |                        ggplot2                         |              Shiny              |
+|:----------------:|:--------------------------------:|:-------------------:|
+| ![](www/dplay.png) | [![](www/ggplot2.png)](https://ggplot2.tidyverse.org/) | ![](www/shiny.png){width="240"} |
 
+: Ecosistema tidyverse
 
+# Fórmulas em latex
 
+$$  Y_{1}=\alpha+\beta_{1}+\epsilon_{i}    $$
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:::: progress
+::: progress
 ::: {.progress-bar style="width: 100%;"}
 :::
-::::
-
+:::

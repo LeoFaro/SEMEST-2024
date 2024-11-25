@@ -3,7 +3,6 @@
 body{text-align: justify}
 </style>
 ```
-
 # Prefácio {.unnumbered}
 
 Será ministrado um curso em linguagem de programação em **R**, utilizando como base o pacote Quarto.
